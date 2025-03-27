@@ -14,6 +14,8 @@ To run the sample codes in this repository, run the following command:
 pip install -r requirements.txt
 ```
 
+As this repository use an LLM and an embedding model from Deka LLM API by Lintasarta Cloudeka, you need to put Deka LLM API key in the [var.enve](var.env) file to access Deka LLM. You can get your API key by contacting Lintasarta Cloudeka [here](https://cloudeka.id/).
+
 ## Add reference documents to vector database
 
 Before we can use RAG with LLM, we first need to add reference documents to a vector database. Run the following command to add the content of a pdf as reference documents to a vector database:
