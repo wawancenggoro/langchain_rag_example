@@ -14,7 +14,7 @@ To run the sample codes in this repository, run the following command:
 pip install -r requirements.txt
 ```
 
-As this repository use an LLM and an embedding model from Deka LLM API by Lintasarta Cloudeka, you need to put Deka LLM API key in the [var.enve](var.env) file to access Deka LLM. You can get your API key by contacting Lintasarta Cloudeka [here](https://cloudeka.id/).
+As this repository use an LLM and an embedding model from Deka LLM API by Lintasarta Cloudeka, you need to put Deka LLM API key in the [var.env](var.env) file to access Deka LLM. You can get your API key by contacting Lintasarta Cloudeka [here](https://cloudeka.id/).
 
 ## Add reference documents to vector database
 
