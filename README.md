@@ -1,6 +1,6 @@
 # A basic example of Retrieval Augmented Generation (RAG)
 
-This repository provides a basic example of RAG using Langchain. This example gives you a clear view about how RAG works down to the most fundamental aspect about Large Language Model (LLM).
+This repository provides a basic example of RAG using Langchain. This example gives you a clear view about how RAG works down to the most fundamental aspect about Large Language Model (LLM), that is, it only receives text as input.
 
 Below is a figure that clearly illustrate how RAG works. It shows that, in the end, LLM only receives text as input. The retrieved document from a vector database and the user prompt are stitched together as a text that serves the actual prompt to an LLM.
 
