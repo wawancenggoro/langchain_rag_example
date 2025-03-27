@@ -1,10 +1,10 @@
 import argparse
-from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
+from dotenv import load_dotenv
 
 def main(prompt):
     load_dotenv('var.env')
@@ -28,11 +28,11 @@ def main(prompt):
     )
     retriever = vectorstore.as_retriever()
 
-    prompt_template = """ You need to answer the question in the sentence as same as in the context 
-        Given below is the context and question of the user.
-        context = {context}
-        question = {question}
-        if the answer is not in the context, answer "No information from my knowledge base that can answer this question"
+    prompt_template = """  
+        Given this context: {context}
+        Answer this question = {question}
+        You need to answer the question in the sentence as same as in the context. 
+        If the answer is not in the context, answer "I cannot answer"
         """
     prompt_template = ChatPromptTemplate.from_template(prompt_template)
 
