@@ -1,10 +1,17 @@
 import argparse
+import langchain
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
+from langchain_core.callbacks import BaseCallbackHandler
+from typing import Any
 from dotenv import load_dotenv
+
+class MyCallback(BaseCallbackHandler):
+    def on_llm_start(self, serialized: dict[str, Any], prompts: list[str], **kwargs: Any) -> None:
+        print(f"The actual prompt sent to the LLM in plain text: {prompts}")
 
 def main(prompt):
     load_dotenv('var.env')
@@ -45,9 +52,10 @@ def main(prompt):
         | llm
         | StrOutputParser()
     )
-
-    response = rag_chain.invoke(prompt)
-    print(response)
+    
+    callback = MyCallback() # Configure the callback
+    response = rag_chain.invoke(prompt, config={'callbacks': [callback]})
+    print(f"LLM response: {response}")
     
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Prompt to LLM with RAG")
