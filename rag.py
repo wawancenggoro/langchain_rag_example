@@ -23,7 +23,7 @@ def main(prompt):
 
     llm = ChatOpenAI(
         model="qwen/qwen25-72b-instruct",
-        temperature=1,
+        temperature=0,
         max_tokens=None,
         timeout=None,
         max_retries=2,
